@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {BsSearch} from "react-icons/bs"
 import { useDebounce } from "use-debounce";
 import {countries} from "@/utils/countries" 
@@ -10,6 +10,10 @@ const Search = ({searchTerm}) => {
     const [searchValue,setSearchValue]=useState(searchTerm)
     const [debouncedValue,cancel] = useDebounce(searchValue, 1000);
     const router=useRouter()
+
+    const handleRoutingChange=useCallback((country,latitude,longitude)=>{
+        router.push(`/?country=${country.country}&lat=${latitude}&long=${longitude}`)
+    },[])
 
     useEffect(()=>{
         if(debouncedValue){
@@ -26,7 +30,7 @@ const Search = ({searchTerm}) => {
             }
         }
 
-    },[debouncedValue])
+    },[debouncedValue,handleRoutingChange])
 
     const handleSearchSubmit=(e)=>{
         e.preventDefault()
@@ -42,9 +46,7 @@ const Search = ({searchTerm}) => {
         }
     }
 
-    const handleRoutingChange=(country,latitude,longitude)=>{
-        router.push(`/?country=${country.country}&lat=${latitude}&long=${longitude}`)
-    }
+
 
     return (
         <div>

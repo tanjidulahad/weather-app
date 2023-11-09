@@ -22,7 +22,7 @@ export const SemiCircle = ({ progress }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [progress]);
+  }, [stop]);
 
 
 
@@ -71,7 +71,7 @@ export const WindDirection = ({direction}) => {
       <div className="airpressurecontainer">
         {
           Array.from({ length: 60 }).map((item, index) => (
-            <div className={`tick`}
+            <div key={index} className={`tick`}
               style={{
                 '--angle': `${(360 / 60) * index}deg`,
                 '--position-number': `${130 + (-13.5 * index)}deg`,
@@ -105,7 +105,7 @@ export const AirPressureIndicatior = () => {
       <div className="airpressurecontainer">
         {
           Array.from({ length: 40 }).map((item, index) => (
-            <div className={`tick`}
+            <div key={index} className={`tick`}
               style={{
                 '--angle': `${(265 / 40) * index}deg`,
                 '--position-number': `${130 + (-13.5 * index)}deg`,

@@ -32,7 +32,7 @@ const TodayForecast = ({ data }) => {
             setTodaysTemp(allFourTemp)
             setUpcommingTime(allFourTime)
         }
-    }, [data])
+    }, [times,temp])
     return (
         <div className="ml-4 my-4">
             <h3 className="text-lg font-medium mb-2">Today</h3>
@@ -43,7 +43,7 @@ const TodayForecast = ({ data }) => {
                         todaysTemp.map((temp, idx) => {
                             if (idx == 0) {
                                 return (
-                                    <div className="flex flex-col items-center bg-[#C4E2FF] w-[20%] rounded-lg py-4 space-y-2">
+                                    <div key={idx} className="flex flex-col items-center bg-[#C4E2FF] w-[20%] rounded-lg py-4 space-y-2">
                                         <p>{moment(upCommingTime[idx]).format('h a')}</p>
                                         <BsCloudSunFill size={28} color="#FED402" />
                                         <h3 className="text-lg">{Math.round(temp)}&deg;C</h3>
@@ -51,7 +51,7 @@ const TodayForecast = ({ data }) => {
                                 )
                             } else {
                                 return (
-                                    <div className="flex flex-col items-center w-[20%] rounded-lg py-4 space-y-2">
+                                    <div key={idx} className="flex flex-col items-center w-[20%] rounded-lg py-4 space-y-2">
                                         <p>{moment(upCommingTime[idx]).format('h a')}</p>
                                         <BsCloudSunFill size={28} color="#FED402" />
                                         <h3 className="text-lg">{Math.round(temp)}&deg;C</h3>
