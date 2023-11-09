@@ -26,7 +26,6 @@ export default async function Home({searchParams}) {
   const dailyUpdateTime=data.daily.time.slice(1)
   const dailyUpdateTemp=data.daily.temperature_2m_max.slice(1)
 
-  console.log(data,searchParams,country,latitude,longitude)
   return (
     <div className="flex flex-col md:flex-row h-screen md:px-8 px-2 mb-8">
       <Toaster/>

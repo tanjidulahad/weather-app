@@ -64,7 +64,6 @@ export const WindDirection = ({direction}) => {
     };
   }, [stop]);
 
-  // console.log("direction",direction);
 
 
   return (
@@ -131,7 +130,6 @@ export const AirPressureIndicatior = () => {
 export const UVindicator = ({temp}) => {
   const percent=(temp<50 && temp>=0)?temp/50:temp<0?0:1
   const rounded=percent.toFixed(2)
-  console.log(percent)
   return (
     <div className="w-40"> 
       <GaugeChart id="gauge-chart1"

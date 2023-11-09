@@ -14,8 +14,6 @@ const Temperature = ({temp}) => {
     const afternoonTemp=Math.round(findAverage(temp.slice(12,16)))
     const eveningTemp=Math.round(findAverage(temp.slice(16,19)))
     const nightTemp=Math.round(findAverage(temp.slice(19,23)))
-    // console.log(temp)
-    // console.log(morningTemp,afternoonTemp,eveningTemp,nightTemp)
 
     const chartdata = [
         {

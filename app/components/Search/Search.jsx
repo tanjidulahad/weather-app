@@ -15,9 +15,7 @@ const Search = ({searchTerm}) => {
         if(debouncedValue){
         const country=countries.filter(item=>item.country.toLowerCase()==debouncedValue.toLowerCase())[0]
         const latitude=country?.latitude
-        const longitude=country?.longitude
-        console.log("from useEffect",country,latitude,longitude)
-        
+        const longitude=country?.longitude        
         
 
             if(country && latitude && longitude){
@@ -36,7 +34,6 @@ const Search = ({searchTerm}) => {
         const country=countries.filter(item=>item.country.toLowerCase()==searchValue.toLowerCase())[0]
         const latitude=country?.latitude
         const longitude=country?.longitude
-        console.log("from handleSearchSubmit",country,latitude,longitude)
         if(country && latitude && longitude){
 
             handleRoutingChange(country,latitude,longitude)
